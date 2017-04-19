@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 /**
  * ImageViewer is the main class for this application.
  * It provides the Graphical User Interface that the client will interact with
@@ -11,7 +10,23 @@ import java.awt.*;
  * 
  */
 public class ImageViewer extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// attributes
+	private JMenuItem jmiSave;
+	private JMenuItem jmiSaveAs;
+	private JMenuItem jmiClose;
+	private JMenuItem jmiUndo;
+	private JMenuItem jmiRedo;
+	private JButton jbEdit;
+	private JButton jbCrop;
+	private JButton jbRotate;
+	private JButton jbMirror;
+	private JButton jbResize;
+	private JButton jbDelete;
+	//private JButton jbOpen;
 	
 	/**
 	 * Main method of application
@@ -33,6 +48,46 @@ public class ImageViewer extends JFrame{
 		setTitle("ImageViewer");
 		
 		//Components for JFrame
+		//MenuBar & Menu + MenuItems
+		JMenuBar jmbMenuBar = new JMenuBar();
+		JMenu jmFile = new JMenu("File");
+			jmiSave = new JMenuItem("Save");
+			jmiSaveAs = new JMenuItem("SaveAs");
+			jmiClose = new JMenuItem("Close");
+			jmFile.add(jmiSave);
+			jmFile.add(jmiSaveAs);
+			jmFile.add(jmiClose);
+		jmbMenuBar.add(jmFile);
+		JMenu jmEdit = new JMenu("Edit");
+			jmiUndo = new JMenuItem("Undo");
+			jmiRedo = new JMenuItem("Redo");
+			jmEdit.add(jmiUndo);
+			jmEdit.add(jmiRedo);
+		jmbMenuBar.add(jmEdit);
+		setJMenuBar(jmbMenuBar);
+		
+		// Option bar for images
+		JPanel jpOptions = new JPanel();
+			jbEdit = new JButton("Edit");
+			jbDelete = new JButton("Delete");
+			jpOptions.add(jbEdit);
+				jbCrop = new JButton("Crop");
+				jbCrop.setVisible(false);
+				jbRotate = new JButton("Rotate");
+				jbRotate.setVisible(false);
+				jbResize = new JButton("Resize");
+				jbResize.setVisible(false);
+				jbMirror = new JButton("Mirror");
+				jbMirror.setVisible(false);
+			jpOptions.add(jbCrop);
+			jpOptions.add(jbRotate);
+			jpOptions.add(jbResize);
+			jpOptions.add(jbMirror);
+			jpOptions.add(jbDelete);
+		add(jpOptions);
+			
+		
+		
 		
 		// JFrame configuration
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
