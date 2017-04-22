@@ -176,3 +176,16 @@ Java Model Exception: Java Model Status [/Library/Java/JavaVirtualMachines/jdk1.
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1006 2017-04-19 10:25:03.605
 !MESSAGE /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar is not on its project's build path
+!SESSION 2017-04-21 13:25:06.545 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/isabella/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/isabella/.eclipse_keyring
+
+!ENTRY org.eclipse.update.configurator 4 0 2017-04-21 13:25:13.872
+!MESSAGE Unable to access file "plugins/org.eclipse.wb.rcp.databinding_1.9.0.201608251253.jar!META-INF/MANIFEST.MF".
+
+!ENTRY org.eclipse.core.net 1 0 2017-04-21 13:25:25.949
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
