@@ -1,3 +1,4 @@
+import java.awt.*;
 import javax.swing.*;
 /**
  * ImageViewer is the main class for this application.
@@ -26,7 +27,8 @@ public class ImageViewer extends JFrame{
 	private JButton jbMirror;
 	private JButton jbResize;
 	private JButton jbDelete;
-	//private JButton jbOpen;
+	private JButton jbOpen;
+	private JButton jbNew;
 	
 	/**
 	 * Main method of application
@@ -86,8 +88,23 @@ public class ImageViewer extends JFrame{
 			jpOptions.add(jbDelete);
 		add(jpOptions);
 			
+		// Panel -- Card Layout
+		JPanel jpCards = new JPanel(new CardLayout());
+			// Card #1 - Albums
+			JPanel jpAlbums = new JPanel();
+				JPanel jpAlbumList = new JPanel();
+					jbNew = new JButton("New Album");
+					jbOpen = new JButton("Open Album");
+				jpAlbumList.add(jbNew);
+			jpAlbums.add(jpAlbumList, BorderLayout.WEST);
+		jpCards.add(jpAlbums);
 		
-		
+			// Card #2 - Image
+			
+			
+			
+			
+		add(jpCards, BorderLayout.CENTER);
 		
 		// JFrame configuration
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
