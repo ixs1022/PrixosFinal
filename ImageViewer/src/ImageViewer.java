@@ -73,7 +73,7 @@ public class ImageViewer extends JFrame{
 		setJMenuBar(jmbMenuBar);
 		
 		// Option bar for images
-		JPanel jpOptions = new JPanel();
+		/*JPanel jpOptions = new JPanel();
 			jbEdit = new JButton("Edit");
 			jbDelete = new JButton("Delete");
 			jpOptions.add(jbEdit);
@@ -90,7 +90,7 @@ public class ImageViewer extends JFrame{
 			jpOptions.add(jbResize);
 			jpOptions.add(jbMirror);
 			jpOptions.add(jbDelete);
-		add(jpOptions, BorderLayout.NORTH);
+		add(jpOptions, BorderLayout.NORTH);*/
 		
 		JPanel jpImages = new JPanel(new CardLayout());
 			ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
