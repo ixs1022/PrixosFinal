@@ -189,3 +189,92 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.core.net 1 0 2017-04-21 13:25:25.949
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2017-04-26 09:34:03.780 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/isabella/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/isabella/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-04-26 09:34:48.276
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.267
+!MESSAGE Invalid ZIP archive: src/images/balloon-hot-air.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.325
+!MESSAGE Invalid ZIP archive: src/images/beaver-lodge-on-martin-lake.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.325
+!MESSAGE Invalid ZIP archive: src/images/beer-and-bread.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.328
+!MESSAGE Invalid ZIP archive: src/images/bengal-tiger.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.330
+!MESSAGE Invalid ZIP archive: src/images/biking-at-chincoteague-national-wildlife-refuge.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.330
+!MESSAGE Invalid ZIP archive: src/images/cactus-photo.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.331
+!MESSAGE Invalid ZIP archive: src/images/chinese-dragons-flat-stanley.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.333
+!MESSAGE Invalid ZIP archive: src/images/cliffs-yosemite-halfdome-sierras.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.334
+!MESSAGE Invalid ZIP archive: src/images/columbia-shuttle-start.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.335
+!MESSAGE Invalid ZIP archive: src/images/decomposing-cow-skull.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.335
+!MESSAGE Invalid ZIP archive: src/images/first-man-on-moon-walking-on-the-moon.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.336
+!MESSAGE Invalid ZIP archive: src/images/great-fireworks-night.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.337
+!MESSAGE Invalid ZIP archive: src/images/man-checking-gill-nets.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.338
+!MESSAGE Invalid ZIP archive: src/images/rock-climber-on-the-wall.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.339
+!MESSAGE Invalid ZIP archive: src/images/soldier-on-military-boat.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.340
+!MESSAGE Invalid ZIP archive: src/images/spring-in-hills.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.341
+!MESSAGE Invalid ZIP archive: src/images/the-manna-organic-shop-kilcullen.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.342
+!MESSAGE Invalid ZIP archive: src/images/Thumbs.db [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.343
+!MESSAGE Invalid ZIP archive: src/images/tower-bridge-in-london-england.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.344
+!MESSAGE Invalid ZIP archive: src/images/winter-road.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.345
+!MESSAGE Invalid ZIP archive: src/images/wooden-window.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.346
+!MESSAGE Invalid ZIP archive: src/images/yankees-stadium-crowd.jpg [in ImageViewer]
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-04-26 11:04:24.346
+!MESSAGE Invalid ZIP archive: src/images/yard-gate.jpg [in ImageViewer]
+!SESSION 2017-04-26 13:57:04.803 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/isabella/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/isabella/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-04-26 13:57:38.233
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
