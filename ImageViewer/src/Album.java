@@ -5,6 +5,6 @@
  * @author isabella
  *
  */
-public class Album implements ImageAlbum {
+public class Album extends ImageAlbum {
 
 }
