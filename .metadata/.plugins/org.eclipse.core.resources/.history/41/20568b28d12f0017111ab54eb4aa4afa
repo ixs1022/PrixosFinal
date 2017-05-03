@@ -1,0 +1,25 @@
+/**
+ * Factory class that will make copies of ImagePrototype objects
+ * @author isabella
+ *
+ */
+public class PrototypeFactory {
+	// attributes
+	
+	/**
+	 * Constructor of prototype factory
+	 */
+	public PrototypeFactory(){
+		
+	}
+	
+	/**
+	 * Method to make copy of ImagePrototype objects
+	 * @param ImagePrototype object
+	 * @return new ImagePrototype object
+	 */
+	public ImagePrototype makeCopy(ImagePrototype ipt){
+		return (ImagePrototype) ipt.makeCopy();
+		
+	}
+}
