@@ -1,4 +1,8 @@
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * EditCommands enables edits (resize, crop, rotate, mirror) of an image
@@ -7,13 +11,19 @@ import javax.swing.JButton;
  * @author isabella
  *
  */
-public class EditCommand implements Command{
+public class EditCommand extends JFrame implements Command{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//attributes
+	private JPanel jpEditing;
 	private JButton jbEdit;
 	private JButton jbRotate;
 	private JButton jbResize;
 	private JButton jbMirror;
 	private JButton jbCrop;
+	private ImageIcon ic;
 	
 	/**
 	 * Constructor
@@ -23,12 +33,16 @@ public class EditCommand implements Command{
 	 * @param jbMirror
 	 * @param jbCrop
 	 */
-	public EditCommand(JButton jbEdit, JButton jbRotate, JButton jbResize, JButton jbMirror, JButton jbCrop){
+	public EditCommand(ImageIcon ic, JPanel jpEditing, JButton jbEdit, JButton jbRotate, JButton jbResize, JButton jbMirror, JButton jbCrop){
+		this.ic = ic;
+		this.jpEditing = jpEditing;
 		this.jbEdit = jbEdit;
 		this.jbRotate = jbRotate;
 		this.jbResize = jbResize;
 		this.jbMirror= jbMirror;
 		this.jbCrop = jbCrop;
+		
+		
 	}
 	
 	@Override
@@ -43,6 +57,14 @@ public class EditCommand implements Command{
 		/* call clone from prototype 
 			and view cloned image next to original for editing
 		*/
+		PrototypeFactory pf = new PrototypeFactory();
+		ImageClone img = new ImageClone(ic);
+		ImageIcon newImg =  pf.makeCopy(img);
+		
+		jpEditing.add(new JLabel(newImg));
+		add(jpEditing);
+		
+		
 		
 		// make action buttons for editing visible
 		jbRotate.setVisible(true);

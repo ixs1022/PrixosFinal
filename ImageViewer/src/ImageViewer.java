@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -158,7 +159,20 @@ public class ImageViewer extends JFrame{
 									  		//jf.setLocationRelativeTo(this);
 									  		Image image1 = img.getImage().getScaledInstance(600, 450, Image.SCALE_SMOOTH);
 									  		ImageIcon newImg1 = new ImageIcon(image1);
-									  		jf.add(new JLabel(newImg1));
+									  		
+									  		
+									  		    BufferedImage bi = new BufferedImage(
+									  			newImg1.getIconWidth(),
+									  			newImg1.getIconHeight(),
+									  			BufferedImage.TYPE_INT_RGB);
+									  			Graphics g = bi.createGraphics();
+									  			// paint the Icon to the BufferedImage.
+									  			newImg1.paintIcon(null, g, 0,0);
+									  			g.dispose();
+									  			
+									  			
+									  		
+									  			jf.add(new JLabel(new ImageIcon(bi)));
 									  		
 									  	// Option bar for images
 											JPanel jpOptions = new JPanel();
@@ -170,6 +184,11 @@ public class ImageViewer extends JFrame{
 													jbRotate = new JButton("Rotate");
 													//jbRotate.setVisible(false);
 													jbResize = new JButton("Resize");
+														jbResize.addMouseListener(new MouseAdapter(){
+															public void mouseClicked(MouseEvent me){
+																
+															}
+														});
 													//jbResize.setVisible(false);
 													jbMirror = new JButton("Mirror");
 													//jbMirror.setVisible(false);
