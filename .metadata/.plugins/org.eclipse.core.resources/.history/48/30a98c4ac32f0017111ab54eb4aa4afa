@@ -1,0 +1,21 @@
+import javax.swing.ImageIcon;
+
+/**
+ * This class implements ImageAlbum and represents an image
+ * Images can be a part of an album or on its own
+ * 
+ * @author isabella
+ *
+ */
+public class CustomImage extends ImageAlbum{
+	// attributes
+	ImageIcon imageIcon;
+	
+	/**
+	 * Constructor
+	 * @param imageIcon
+	 */
+	public CustomImage(ImageIcon imageIcon){
+		this.imageIcon = imageIcon;
+	}
+}

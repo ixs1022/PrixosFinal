@@ -100,6 +100,29 @@ public class ImageViewer extends JFrame{
 				alImages.add(new ImageIcon("yankees-stadium-crowd.jpg"));
 				alImages.add(new ImageIcon("yard-gate.jpg"));
 				
+				/*alImages.add(new ImageIcon("ImageViwer/balloon-hot-air.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/beaver-lodge-on-martin-lake.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/beer-and-bread.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/bengal-tiger.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/biking-at-chincoteague-national-wildlife-refuge.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/cactus-photo.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/chinese-dragons-flat-stanley.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/cliffs-yosemite-halfdome-sierras.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/columbia-shuttle-start.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/decomposing-cow-skull.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/first-man-on-moon-walking-on-the-moon.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/great-fireworks-night.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/man-checking-gill-nets.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/rock-climber-on-the-wall.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/soldier-on-military-boat.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/spring-in-hills.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/the-manna-organic-shop-kilcullen.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/tower-bridge-in-london-england.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/winter-road.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/wooden-window.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/yankees-stadium-crowd.jpg"));
+				alImages.add(new ImageIcon("ImageViwer/yard-gate.jpg"));*/
+				
 			int numCards;
 			if(alImages.size() % 4 == 0){
 				numCards = alImages.size()/4;
