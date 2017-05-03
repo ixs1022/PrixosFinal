@@ -1,56 +1,49 @@
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.*;
-/**
- * ImageViewer is the main class for this application.
- * It provides the Graphical User Interface that the client will interact with
- * The purpose of this application is to allow the user to:
- * 	Organize images into albums and search for images by album
- * 	Edit images (crop, rotate, resize, mirror) without altering original
- *
- * @author isabella
- * 
- */
-public class ImageViewer extends JFrame{
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+
+public class ImageViewer3 extends JFrame{
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	// attributes
 	private JMenuItem jmiSave;
 	private JMenuItem jmiSaveAs;
 	private JMenuItem jmiClose;
 	private JMenuItem jmiUndo;
 	private JMenuItem jmiRedo;
-	private JButton jbEdit;
+	/*private JButton jbEdit;
 	private JButton jbCrop;
 	private JButton jbRotate;
 	private JButton jbMirror;
 	private JButton jbResize;
 	private JButton jbDelete;
 	private JButton jbOpen;
-	private JButton jbNew;
+	private JButton jbNew;*/
 	private int cur = 0;
-	/**
-	 * Main method of application
-	 * Instantiates the constructor which builds the GUI
-	 * Handles the actions called by client
-	 */
-	public static void main(String [] args){
-		new ImageViewer();
-	}
 	
 	/**
 	 * Constructor for ImageViewer
 	 * Builds Graphical User Interface that will allow client to
 	 * interact with and use application
 	 */
-	public ImageViewer(){
+	public ImageViewer3(){
 		//JFrame
 		setSize(850, 700);
 		setTitle("ImageViewer");
@@ -74,31 +67,50 @@ public class ImageViewer extends JFrame{
 		jmbMenuBar.add(jmEdit);
 		setJMenuBar(jmbMenuBar);
 		
+		// Option bar for images
+		/*JPanel jpOptions = new JPanel();
+			jbEdit = new JButton("Edit");
+			jbDelete = new JButton("Delete");
+			jpOptions.add(jbEdit);
+				jbCrop = new JButton("Crop");
+				//jbCrop.setVisible(false);
+				jbRotate = new JButton("Rotate");
+				//jbRotate.setVisible(false);
+				jbResize = new JButton("Resize");
+				//jbResize.setVisible(false);
+				jbMirror = new JButton("Mirror");
+				//jbMirror.setVisible(false);
+			jpOptions.add(jbCrop);
+			jpOptions.add(jbRotate);
+			jpOptions.add(jbResize);
+			jpOptions.add(jbMirror);
+			jpOptions.add(jbDelete);
+		add(jpOptions, BorderLayout.NORTH);*/
 		
 		JPanel jpImages = new JPanel(new CardLayout());
-			ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
-				alImages.add(new ImageIcon("balloon-hot-air.jpg"));
-				alImages.add(new ImageIcon("beaver-lodge-on-martin-lake.jpg"));
-				alImages.add(new ImageIcon("beer-and-bread.jpg"));
-				alImages.add(new ImageIcon("bengal-tiger.jpg"));
-				alImages.add(new ImageIcon("biking-at-chincoteague-national-wildlife-refuge.jpg"));
-				alImages.add(new ImageIcon("cactus-photo.jpg"));
-				alImages.add(new ImageIcon("chinese-dragons-flat-stanley.jpg"));
-				alImages.add(new ImageIcon("cliffs-yosemite-halfdome-sierras.jpg"));
-				alImages.add(new ImageIcon("columbia-shuttle-start.jpg"));
-				alImages.add(new ImageIcon("decomposing-cow-skull.jpg"));
-				alImages.add(new ImageIcon("first-man-on-moon-walking-on-the-moon.jpg"));
-				alImages.add(new ImageIcon("great-fireworks-night.jpg"));
-				alImages.add(new ImageIcon("man-checking-gill-nets.jpg"));
-				alImages.add(new ImageIcon("rock-climber-on-the-wall.jpg"));
-				alImages.add(new ImageIcon("soldier-on-military-boat.jpg"));
-				alImages.add(new ImageIcon("spring-in-hills.jpg"));
-				alImages.add(new ImageIcon("the-manna-organic-shop-kilcullen.jpg"));
-				alImages.add(new ImageIcon("tower-bridge-in-london-england.jpg"));
-				alImages.add(new ImageIcon("winter-road.jpg"));
-				alImages.add(new ImageIcon("wooden-window.jpg"));
-				alImages.add(new ImageIcon("yankees-stadium-crowd.jpg"));
-				alImages.add(new ImageIcon("yard-gate.jpg"));
+			ArrayList<CustomImage> alImages = new ArrayList<CustomImage>();
+				alImages.add(new CustomImage("balloon-hot-air.jpg"));
+				alImages.add(new CustomImage("beaver-lodge-on-martin-lake.jpg"));
+				alImages.add(new CustomImage("beer-and-bread.jpg"));
+				alImages.add(new CustomImage("bengal-tiger.jpg"));
+				alImages.add(new CustomImage("biking-at-chincoteague-national-wildlife-refuge.jpg"));
+				alImages.add(new CustomImage("cactus-photo.jpg"));
+				alImages.add(new CustomImage("chinese-dragons-flat-stanley.jpg"));
+				alImages.add(new CustomImage("cliffs-yosemite-halfdome-sierras.jpg"));
+				alImages.add(new CustomImage("columbia-shuttle-start.jpg"));
+				alImages.add(new CustomImage("decomposing-cow-skull.jpg"));
+				alImages.add(new CustomImage("first-man-on-moon-walking-on-the-moon.jpg"));
+				alImages.add(new CustomImage("great-fireworks-night.jpg"));
+				alImages.add(new CustomImage("man-checking-gill-nets.jpg"));
+				alImages.add(new CustomImage("rock-climber-on-the-wall.jpg"));
+				alImages.add(new CustomImage("soldier-on-military-boat.jpg"));
+				alImages.add(new CustomImage("spring-in-hills.jpg"));
+				alImages.add(new CustomImage("the-manna-organic-shop-kilcullen.jpg"));
+				alImages.add(new CustomImage("tower-bridge-in-london-england.jpg"));
+				alImages.add(new CustomImage("winter-road.jpg"));
+				alImages.add(new CustomImage("wooden-window.jpg"));
+				alImages.add(new CustomImage("yankees-stadium-crowd.jpg"));
+				alImages.add(new CustomImage("yard-gate.jpg"));
 				
 			int numCards;
 			if(alImages.size() % 4 == 0){
@@ -120,47 +132,26 @@ public class ImageViewer extends JFrame{
 						for(int j=0; j < 4; j++){
 							//System.out.println(x);
 							if(x < k){
-								ImageIcon img = alImages.get(x);
-								//System.out.println(img.toString());
-								java.awt.Image image = img.getImage();
-								java.awt.Image newImage = image.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
-								ImageIcon newImg = new ImageIcon(newImage);
-								JLabel jlImage = new JLabel(newImg);
-								jlImage.addMouseListener(new MouseAdapter() {
+								CustomImage img = alImages.get(x);
+								Image image = img.getImage();
+								ImageIcon ic = new ImageIcon(image);
+								JLabel jl = new JLabel(ic);
+								jl.addMouseListener(new MouseAdapter() {
 								      public void mouseClicked(MouseEvent me) {
 								          System.out.println("CLICKED");
 								          JFrame jf = new JFrame();
-									  		jf.setSize(650, 600);
-									  		//jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+									  		jf.setSize(500, 500);
+									  		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 									  		//jf.setLocationRelativeTo(this);
-									  		Image image1 = img.getImage().getScaledInstance(600, 450, Image.SCALE_SMOOTH);
-									  		ImageIcon newImg1 = new ImageIcon(image1);
-									  		jf.add(new JLabel(newImg1));
-									  		
-									  	// Option bar for images
-											JPanel jpOptions = new JPanel();
-												jbEdit = new JButton("Edit");
-												jbDelete = new JButton("Delete");
-												jpOptions.add(jbEdit);
-													jbCrop = new JButton("Crop");
-													//jbCrop.setVisible(false);
-													jbRotate = new JButton("Rotate");
-													//jbRotate.setVisible(false);
-													jbResize = new JButton("Resize");
-													//jbResize.setVisible(false);
-													jbMirror = new JButton("Mirror");
-													//jbMirror.setVisible(false);
-												jpOptions.add(jbCrop);
-												jpOptions.add(jbRotate);
-												jpOptions.add(jbResize);
-												jpOptions.add(jbMirror);
-												jpOptions.add(jbDelete);
-											jf.add(jpOptions, BorderLayout.NORTH);
+									  		jf.add(jl);
 									  		
 									  		jf.setVisible(true);
 								        }
 								      });
-								jpImageGrid.add(jlImage);
+								
+								//System.out.println(img.toString());
+								
+								jpImageGrid.add(jl);
 								x++;
 								//k--;
 							}

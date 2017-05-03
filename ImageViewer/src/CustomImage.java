@@ -1,4 +1,9 @@
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import java.awt.Image;
+import java.awt.event.*;
 
 /**
  * This class implements ImageAlbum and represents an image
@@ -7,14 +12,64 @@ import javax.swing.ImageIcon;
  * @author isabella
  *
  */
-public class CustomImage extends ImageAlbum{
+public class CustomImage extends ImageIcon implements MouseListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// attributes
+	ImageIcon imageIcon;
+	JLabel jlImage;
+	JFrame main;
 	
 	/**
 	 * Constructor
-	 * @param filename
+	 * @param imageIcon
 	 */
 	public CustomImage(String filename){
-		new ImageIcon(filename);
+		imageIcon = new ImageIcon(filename);
+		
+		Image img = this.imageIcon.getImage().getScaledInstance(333, 250, Image.SCALE_SMOOTH);
+		this.imageIcon = new ImageIcon(img);
+		jlImage = new JLabel(this.imageIcon);
+	}
+	
+	public Image getImage(){
+		return imageIcon.getImage();
+	}
+	
+	public void mouseClicked(MouseEvent me){
+		JFrame jf = new JFrame();
+		jf.setSize(500, 500);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setLocationRelativeTo(main);
+		jf.add(jlImage);
+		
+		jf.setVisible(true);
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

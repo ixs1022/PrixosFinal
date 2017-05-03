@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
 
 /**
  * This class implements ImageAlbum and represents an Album
