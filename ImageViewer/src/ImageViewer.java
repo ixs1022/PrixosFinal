@@ -36,7 +36,16 @@ public class ImageViewer extends JFrame{
 	private JButton jbDelete;
 	private JButton jbOpen;
 	private JButton jbNew;
+	private JFrame jf;
 	private int cur = 0;
+	
+	private Image image1;
+	private ImageIcon newImg1;
+	private BufferedImage bi;
+	private Graphics g;
+	private JLabel jlOld;
+	private JLabel jlNew;
+	private JPanel jpOptions;
 	/**
 	 * Main method of application
 	 * Instantiates the constructor which builds the GUI
@@ -132,6 +141,18 @@ public class ImageViewer extends JFrame{
 				numCards = alImages.size()/4 + 1;
 			}
 			
+			jbEdit = new JButton("Edit");
+			jbDelete = new JButton("Delete");
+			jbDelete.setVisible(false);
+				jbCrop = new JButton("Crop");
+				jbCrop.setVisible(false);
+				jbRotate = new JButton("Rotate");
+				jbRotate.setVisible(false);
+				jbResize = new JButton("Resize");
+				jbResize.setVisible(false);
+				jbMirror = new JButton("Mirror");
+				jbMirror.setVisible(false);
+			
 			ArrayList<JPanel> alCards = new ArrayList<JPanel>();
 			int k = alImages.size() -1;
 			int x = 0;
@@ -153,45 +174,55 @@ public class ImageViewer extends JFrame{
 								jlImage.addMouseListener(new MouseAdapter() {
 								      public void mouseClicked(MouseEvent me) {
 								          System.out.println("CLICKED");
-								          JFrame jf = new JFrame();
+								           jf = new JFrame();
 									  		jf.setSize(650, 600);
 									  		//jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 									  		//jf.setLocationRelativeTo(this);
-									  		Image image1 = img.getImage().getScaledInstance(600, 450, Image.SCALE_SMOOTH);
-									  		ImageIcon newImg1 = new ImageIcon(image1);
+									  		 image1 = img.getImage().getScaledInstance(600, 450, Image.SCALE_SMOOTH);
+									  		 newImg1 = new ImageIcon(image1);
 									  		
 									  		
-									  		    BufferedImage bi = new BufferedImage(
+									  		     bi = new BufferedImage(
 									  			newImg1.getIconWidth(),
 									  			newImg1.getIconHeight(),
 									  			BufferedImage.TYPE_INT_RGB);
-									  			Graphics g = bi.createGraphics();
+									  			 g = bi.createGraphics();
 									  			// paint the Icon to the BufferedImage.
 									  			newImg1.paintIcon(null, g, 0,0);
 									  			g.dispose();
 									  			
-									  			
+									  			jlOld = new JLabel(new ImageIcon(bi));
 									  		
-									  			jf.add(new JLabel(new ImageIcon(bi)));
+									  			jf.add(jlOld);
 									  		
 									  	// Option bar for images
-											JPanel jpOptions = new JPanel();
-												jbEdit = new JButton("Edit");
-												jbDelete = new JButton("Delete");
-												jpOptions.add(jbEdit);
-													jbCrop = new JButton("Crop");
-													//jbCrop.setVisible(false);
-													jbRotate = new JButton("Rotate");
-													//jbRotate.setVisible(false);
-													jbResize = new JButton("Resize");
+											 jpOptions = new JPanel();
+												
 														jbResize.addMouseListener(new MouseAdapter(){
 															public void mouseClicked(MouseEvent me){
-																
+																System.out.println("Resize");
+																 image1 = img.getImage().getScaledInstance(300,
+																		 250, Image.SCALE_SMOOTH);
+														  		 newImg1 = new ImageIcon(image1);
+														  		
+														  		
+														  		     bi = new BufferedImage(
+														  			newImg1.getIconWidth(),
+														  			newImg1.getIconHeight(),
+														  			BufferedImage.TYPE_INT_RGB);
+														  			 g = bi.createGraphics();
+														  			// paint the Icon to the BufferedImage.
+														  			newImg1.paintIcon(null, g, 0,0);
+														  			g.dispose();
+														  			
+														  			jlNew = new JLabel(new ImageIcon(bi));
+														  			jf.remove(jlOld);
+														  			jf.add(jlNew);
+														  			
 															}
 														});
-													//jbResize.setVisible(false);
-													jbMirror = new JButton("Mirror");
-													//jbMirror.setVisible(false);
+													
+												jpOptions.add(jbEdit);	
 												jpOptions.add(jbCrop);
 												jpOptions.add(jbRotate);
 												jpOptions.add(jbResize);
@@ -258,6 +289,10 @@ public class ImageViewer extends JFrame{
 					
 				}
 			});
+			
+		
+		
+		
 		
 			
 		// Panel -- Card Layout
@@ -270,13 +305,19 @@ public class ImageViewer extends JFrame{
 				jpAlbumList.add(jbNew);
 			jpAlbums.add(jpAlbumList, BorderLayout.WEST);
 		jpCards.add(jpAlbums);
-		
-			
-			
-			
 			
 		add(jpCards, BorderLayout.CENTER);*/
-		
+			
+			CommandHandler ch = new CommandHandler(jf, jbEdit, jbCrop, jbDelete, jbMirror, jbResize, jbRotate, jmiSave, jpOptions, newImg1);
+			/*CommandHandler ch = new CommandHandler(jbEdit, jbCrop, jbDelete, jbMirror, jbResize, jbRotate);
+			*/
+			jbEdit.addActionListener(ch);
+			jbCrop.addActionListener(ch);
+			jbDelete.addActionListener(ch);
+			jbMirror.addActionListener(ch);
+			//jbResize.addActionListener(this);
+			jbRotate.addActionListener(ch);
+			jmiSave.addActionListener(ch);
 		
 		
 		// JFrame configuration
@@ -284,5 +325,8 @@ public class ImageViewer extends JFrame{
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
+		
+		
 	}
+
 }

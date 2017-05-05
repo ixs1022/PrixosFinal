@@ -1,3 +1,4 @@
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,11 +12,10 @@ import javax.swing.JPanel;
  * @author isabella
  *
  */
-public class EditCommand extends JFrame implements Command{
+public class EditCommand implements Command{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	//attributes
 	private JPanel jpEditing;
 	private JButton jbEdit;
@@ -23,7 +23,9 @@ public class EditCommand extends JFrame implements Command{
 	private JButton jbResize;
 	private JButton jbMirror;
 	private JButton jbCrop;
+	private JButton jbDelete;
 	private ImageIcon ic;
+	private JFrame jf;
 	
 	/**
 	 * Constructor
@@ -32,8 +34,10 @@ public class EditCommand extends JFrame implements Command{
 	 * @param jbResize
 	 * @param jbMirror
 	 * @param jbCrop
+	 * @param jbDelete
 	 */
-	public EditCommand(ImageIcon ic, JPanel jpEditing, JButton jbEdit, JButton jbRotate, JButton jbResize, JButton jbMirror, JButton jbCrop){
+	public EditCommand(JFrame jf,ImageIcon ic, JPanel jpEditing, JButton jbEdit, JButton jbRotate, JButton jbResize, JButton jbMirror, JButton jbCrop, JButton jbDelete){
+		this.jf = jf;
 		this.ic = ic;
 		this.jpEditing = jpEditing;
 		this.jbEdit = jbEdit;
@@ -41,6 +45,7 @@ public class EditCommand extends JFrame implements Command{
 		this.jbResize = jbResize;
 		this.jbMirror= jbMirror;
 		this.jbCrop = jbCrop;
+		this.jbDelete = jbDelete;
 		
 		
 	}
@@ -62,7 +67,7 @@ public class EditCommand extends JFrame implements Command{
 		ImageIcon newImg =  pf.makeCopy(img);
 		
 		jpEditing.add(new JLabel(newImg));
-		add(jpEditing);
+		jf.add(jpEditing);
 		
 		
 		
@@ -71,6 +76,7 @@ public class EditCommand extends JFrame implements Command{
 		jbResize.setVisible(true);
 		jbMirror.setVisible(true);
 		jbCrop.setVisible(true);
+		jbDelete.setVisible(true);
 		
 		jbEdit.setEnabled(false);
 	}

@@ -5,7 +5,7 @@
  * @author isabella
  *
  */
-public interface Command {
+public interface Command{
 	
 	public void execute();
 	
