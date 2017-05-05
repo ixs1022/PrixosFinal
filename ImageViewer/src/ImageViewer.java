@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -308,7 +310,7 @@ public class ImageViewer extends JFrame{
 			
 		add(jpCards, BorderLayout.CENTER);*/
 			
-			CommandHandler ch = new CommandHandler(jf, jbEdit, jbCrop, jbDelete, jbMirror, jbResize, jbRotate, jmiSave, jpOptions, newImg1);
+			CommandHandler ch = new CommandHandler(jf, jbEdit, jbCrop, jbDelete, jbMirror, jbResize, jbRotate, jmiSave, jpOptions, newImg1,bi);
 			/*CommandHandler ch = new CommandHandler(jbEdit, jbCrop, jbDelete, jbMirror, jbResize, jbRotate);
 			*/
 			jbEdit.addActionListener(ch);
@@ -316,7 +318,42 @@ public class ImageViewer extends JFrame{
 			jbDelete.addActionListener(ch);
 			jbMirror.addActionListener(ch);
 			//jbResize.addActionListener(this);
-			jbRotate.addActionListener(ch);
+			//jbRotate.addActionListener(ch);
+			jbRotate.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent ae){
+					Integer[] options = {45,
+			                90,
+			                180};
+					int n = JOptionPane.showOptionDialog(null,
+					"How many degrees would you like to rotate the image?",
+					"Rotate",
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null,
+					options,
+					options[2]);
+					
+					System.out.println("Choice: " +options[n]);
+					
+					double deg = (double) options[n];
+					double radians = deg * Math.PI / 180;
+					
+					System.out.println("Image width: " +bi.getWidth() +"\tImage height: " +bi.getHeight());
+					
+					AffineTransform at = AffineTransform.getRotateInstance(radians, bi.getWidth()/2, bi.getHeight()/2);
+					
+					//AffineTransform at = new AffineTransform();
+					at.rotate(radians, bi.getWidth()/2, bi.getHeight()/2);
+					AffineTransformOp ato = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+					ato.filter(bi,null);
+					
+					 BufferedImage newImage = new BufferedImage(bi.getWidth(), bi.getHeight(),BufferedImage.TYPE_INT_ARGB);
+				      Graphics2D g = newImage.createGraphics();
+				      g.transform(at);
+				      g.drawImage(bi, 0, 0, null);
+				      g.dispose();
+				}
+			});
 			jmiSave.addActionListener(ch);
 		
 		

@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.image.BufferedImage;
 
 /**
  * Acts as the controller for the commands
@@ -22,10 +23,11 @@ public class CommandHandler implements ActionListener{
 	private JPanel jpImage;
 	private ImageIcon ic;
 	private JFrame jf;
+	private BufferedImage bi;
 	
 	
 	public CommandHandler(JFrame jf,JButton edit, JButton crop, JButton delete, JButton mirror, JButton resize,
-							JButton rotate, JMenuItem save, JPanel jp, ImageIcon icon){
+							JButton rotate, JMenuItem save, JPanel jp, ImageIcon icon, BufferedImage bi){
 		this.jf = jf;
 		jbEdit = edit;
 		jbCrop = crop;
@@ -36,6 +38,7 @@ public class CommandHandler implements ActionListener{
 		jmiSave = save;
 		jpImage = jp;
 		ic = icon;
+		this.bi = bi;
 	}
 	
 	public CommandHandler(JButton edit, JButton crop, JButton delete, JButton mirror, JButton resize,
@@ -82,7 +85,7 @@ public class CommandHandler implements ActionListener{
 		else if(button == jbRotate){
 			System.out.print("Rotate");
 			
-			Integer[] options = {180,
+			/*Integer[] options = {180,
 	                90,
 	                45};
 			int n = JOptionPane.showOptionDialog(null,
@@ -94,7 +97,9 @@ public class CommandHandler implements ActionListener{
 			options,
 			options[1]);
 			
-			System.out.println(": " +options[n]);
+			System.out.println(": " +options[n]);*/
+			RotateCommand rc = new RotateCommand(bi);
+			rc.execute();
 			
 		}
 		else if(button == jmiSave){
