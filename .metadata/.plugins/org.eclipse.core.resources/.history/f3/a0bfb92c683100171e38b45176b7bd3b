@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -80,22 +79,7 @@ public class CommandHandler implements ActionListener{
 			
 		}
 		else if(button == jbRotate){
-			System.out.print("Rotate");
-			
-			Integer[] options = {180,
-	                90,
-	                45};
-			int n = JOptionPane.showOptionDialog(null,
-			"How many degrees would you like to rotate the image?",
-			"Rotate",
-			JOptionPane.YES_NO_CANCEL_OPTION,
-			JOptionPane.QUESTION_MESSAGE,
-			null,
-			options,
-			options[1]);
-			
-			System.out.println(": " +options[n]);
-			
+			System.out.println("Rotate");
 		}
 		else if(button == jmiSave){
 			System.out.println("Save");

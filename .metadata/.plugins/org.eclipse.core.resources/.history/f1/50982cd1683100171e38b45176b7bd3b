@@ -92,7 +92,7 @@ public class CommandHandler implements ActionListener{
 			JOptionPane.QUESTION_MESSAGE,
 			null,
 			options,
-			options[1]);
+			options[2]);
 			
 			System.out.println(": " +options[n]);
 			

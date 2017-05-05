@@ -82,9 +82,9 @@ public class CommandHandler implements ActionListener{
 		else if(button == jbRotate){
 			System.out.print("Rotate");
 			
-			Integer[] options = {180,
+			Integer[] options = {45,
 	                90,
-	                45};
+	                180};
 			int n = JOptionPane.showOptionDialog(null,
 			"How many degrees would you like to rotate the image?",
 			"Rotate",
@@ -92,7 +92,7 @@ public class CommandHandler implements ActionListener{
 			JOptionPane.QUESTION_MESSAGE,
 			null,
 			options,
-			options[1]);
+			options[0]);
 			
 			System.out.println(": " +options[n]);
 			

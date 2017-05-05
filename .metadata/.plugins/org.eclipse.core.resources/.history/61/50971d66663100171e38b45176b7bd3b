@@ -62,13 +62,13 @@ public class EditCommand implements Command{
 		/* call clone from prototype 
 			and view cloned image next to original for editing
 		*/
-		/*PrototypeFactory pf = new PrototypeFactory();
+		PrototypeFactory pf = new PrototypeFactory();
 		ImageClone img = new ImageClone(ic);
 		ImageIcon newImg =  pf.makeCopy(img);
 		
 		jpEditing.add(new JLabel(newImg));
 		jf.add(jpEditing);
-		*/
+		
 		
 		
 		// make action buttons for editing visible

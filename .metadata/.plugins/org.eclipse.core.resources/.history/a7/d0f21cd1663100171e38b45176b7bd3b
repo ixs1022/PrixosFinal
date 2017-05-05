@@ -18,15 +18,14 @@ public class ImageClone implements ImagePrototype{
 	@Override
 	public ImageIcon makeCopy() {
 		
-		/*try {
+		try {
 			ic = (ImageIcon) super.clone();
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
 			
 			System.out.println("Cannot clone image");
-		}*/
-		
+		}
 		return ic;
 	}
 
