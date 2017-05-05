@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>PrixosFinalv2</name>
+			<type>2</type>
+			<location>/Users/isabella/Documents/383/Final/PrixosFinalv2</location>
+		</link>
+	</linkedResources>
 </projectDescription>
