@@ -82,28 +82,28 @@ public class ImageViewer extends JFrame{
 		
 		JPanel jpImages = new JPanel(new CardLayout());
 			ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
-				alImages.add(new ImageIcon("ImageViewer/balloon-hot-air.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/beaver-lodge-on-martin-lake.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/beer-and-bread.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/bengal-tiger.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/biking-at-chincoteague-national-wildlife-refuge.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/cactus-photo.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/chinese-dragons-flat-stanley.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/cliffs-yosemite-halfdome-sierras.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/columbia-shuttle-start.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/decomposing-cow-skull.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/first-man-on-moon-walking-on-the-moon.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/great-fireworks-night.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/man-checking-gill-nets.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/rock-climber-on-the-wall.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/soldier-on-military-boat.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/spring-in-hills.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/the-manna-organic-shop-kilcullen.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/tower-bridge-in-london-england.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/winter-road.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/wooden-window.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/yankees-stadium-crowd.jpg"));
-				alImages.add(new ImageIcon("ImageViewer/yard-gate.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/balloon-hot-air.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/beaver-lodge-on-martin-lake.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/beer-and-bread.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/bengal-tiger.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/biking-at-chincoteague-national-wildlife-refuge.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/cactus-photo.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/chinese-dragons-flat-stanley.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/cliffs-yosemite-halfdome-sierras.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/columbia-shuttle-start.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/decomposing-cow-skull.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/first-man-on-moon-walking-on-the-moon.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/great-fireworks-night.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/man-checking-gill-nets.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/rock-climber-on-the-wall.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/soldier-on-military-boat.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/spring-in-hills.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/the-manna-organic-shop-kilcullen.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/tower-bridge-in-london-england.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/winter-road.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/wooden-window.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/yankees-stadium-crowd.jpg"));
+				alImages.add(new ImageIcon("ImageViewer2/yard-gate.jpg"));
 				
 				
 			int numCards;
@@ -140,14 +140,16 @@ public class ImageViewer extends JFrame{
 									
 								      public void mouseClicked(MouseEvent me) {
 								          System.out.println("CLICKED");
-								          String aloba = "" + img;
-								          System.out.println("" + img);
-								          File f = new File(aloba);
-								          CustomImage made = new CustomImage(f);
-								          made.rightSize();
 								          
-								          DisplayFrame df = new DisplayFrame();
-								          df.showFrame(made);
+								          String fileName = "" + img;
+								          
+								          File f = new File(fileName);
+								          CustomImage madeImage = new CustomImage(f);
+						
+								          DisplayFrame df = new DisplayFrame(madeImage);
+
+								          madeImage.setImageIcon(img);
+								          df.showFrame(madeImage);
 								          
 								        
 								        }
