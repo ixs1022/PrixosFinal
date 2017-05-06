@@ -21,33 +21,41 @@ public class ImageEditor{
    
    //METHODS
    
+   //Method for resizing the image
    public void resize(int w, int h){
       Image im = image.getBuffered().getScaledInstance(w, h, image.getBuffered().SCALE_DEFAULT);   
-      image.setIcon(new ImageIcon(im));
-      image.setBufferedFromImageIcon();
+      image.setImageIcon(new ImageIcon(im));
+      image.createBufferedViaImageIcon();
    }
    
+ //Method for fliping the image
    public void flip(){
       BufferedImage flipped  = createFlipped(image.getBuffered());
-      image.setIcon(new ImageIcon(flipped));
-      image.setBuffered(flipped);
+      image.setImageIcon(new ImageIcon(flipped));
+      image.setBufferedImage(flipped);
    }
    
+ //Method for rotating the image
    public void rotate(double deg){
       BufferedImage rotated = createRotated(image.getBuffered(), deg);
-      image.setIcon(new ImageIcon(rotated));
-      image.setBuffered(rotated);
+      image.setImageIcon(new ImageIcon(rotated));
+      image.setBufferedImage(rotated);
    }
    
+   
+   //Saves the new BufferedImage as png
    public void saveImage(){
 	   image.saveImageNew();
    }
   
-   //Returns a rotated BufferedImage 
+  
+   
+   // A guide fore rotating and flipping - read this please http://stackoverflow.com/questions/4918482/rotating-bufferedimage-instances
+   
    private static BufferedImage createRotated(BufferedImage image, double deg){
-       System.out.println("ImageEditor - createRotated()"); 
+       
 	   AffineTransform at = AffineTransform.getRotateInstance(Math.PI, image.getWidth()/2, image.getHeight()/2.0);
-        return createTransformed(image, at);
+       return createTransformed(image, at);
     }
    
    
@@ -60,8 +68,8 @@ public class ImageEditor{
    
    
    private static BufferedImage createTransformed(BufferedImage image, AffineTransform at){
-	   System.out.println("ImageEditor - createTransformed()"); 
-	   BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(),BufferedImage.TYPE_INT_ARGB);
+	   
+	  BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(),BufferedImage.TYPE_INT_ARGB);
       Graphics2D g = newImage.createGraphics();
       g.transform(at);
       g.drawImage(image, 0, 0, null);
