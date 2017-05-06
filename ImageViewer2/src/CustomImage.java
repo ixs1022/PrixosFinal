@@ -82,30 +82,25 @@ public class CustomImage{
    }
    
    //SETTERS
-   public void setIcon(ImageIcon icon)
+   public void setImageIcon(ImageIcon icon)
    {
       this.icon = icon;
    }
    
   
-   public void setBufferedFromImageIcon()
+   public void createBufferedViaImageIcon()
    {
-	   image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
+	  image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
       Graphics g = image.createGraphics();
       icon.paintIcon(null, g, 0,0);
       g.dispose();
    }
    
   
-   public void setBuffered(BufferedImage img)
+   public void setBufferedImage(BufferedImage img)
    {
       this.image = img;
    }
    
-  
-   
-   public String getType()
-   {
-      return file.getName().substring(file.getName().length()-3, file.getName().length());
-   }
+ 
 }
