@@ -11,19 +11,19 @@ public class CustomImage{
 	
 	//ATTRIBUTES
    ImageIcon icon;
-   BufferedImage img = null;
-   File f;
+   BufferedImage image = null;
+   File file;
    ArrayList<ImageIcon> alImages;
    
    //CONSTRUCTOR
    
-   public CustomImage( File f){
+   public CustomImage(File file){
 	   
       try{
-         icon =new ImageIcon(f.toURL());
-         img = ImageIO.read(f);
-         img.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
-         this.f = f;
+        // icon = new ImageIcon(f.toURL());
+         image = ImageIO.read(file);
+         image.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
+         this.file = file;
          //this.alImages = alImages;
       }
       catch(Exception e){
@@ -35,19 +35,19 @@ public class CustomImage{
    //TEST METHODS HEERE
    
    public void rightSize(){
-	   img.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
+	   image.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
    }
    
    
  //saveImage Method
    public void saveImageNew()
    {
-	   String newName = f.getName().substring(0,f.getName().length() -4);
+	   String newName = file.getName().substring(0,file.getName().length() -4);
 	   try {
 		    // retrieve image
-		    BufferedImage bi = img;
+		    BufferedImage bi = image;
 		    File outputfile = new File("ImageViewer/"+newName+"Edited.png");
-		    ImageIO.write(img, "PNG", outputfile);
+		    ImageIO.write(image, "PNG", outputfile);
 	   }
       catch(Exception e)
       {
@@ -63,7 +63,7 @@ public class CustomImage{
    
    public BufferedImage getBuffered()
    {
-      return img;
+      return image;
    }
    
    public Icon getIcon()
@@ -90,8 +90,8 @@ public class CustomImage{
   
    public void setBufferedFromImageIcon()
    {
-      img = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
-      Graphics g = img.createGraphics();
+	   image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
+      Graphics g = image.createGraphics();
       icon.paintIcon(null, g, 0,0);
       g.dispose();
    }
@@ -99,13 +99,13 @@ public class CustomImage{
   
    public void setBuffered(BufferedImage img)
    {
-      this.img = img;
+      this.image = img;
    }
    
   
    
    public String getType()
    {
-      return f.getName().substring(f.getName().length()-3, f.getName().length());
+      return file.getName().substring(file.getName().length()-3, file.getName().length());
    }
 }
