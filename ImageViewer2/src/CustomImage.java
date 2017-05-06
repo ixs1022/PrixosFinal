@@ -64,7 +64,22 @@ public class CustomImage{
    public BufferedImage getBuffered()
    {
       return image;
+      
    }
+   
+   //Returns an icon
+   
+   public int getHeightImage()
+   {
+      return image.getHeight();
+   }
+   
+   public int getWidthImage()
+   {
+      return image.getWidth();
+   }
+   
+   
    
    public Icon getIcon()
    {
@@ -82,8 +97,12 @@ public class CustomImage{
    }
    
    //SETTERS
+   
+   // setting the image icon using the setImageIcon() and resizing it to fit the new pop up Jframe
    public void setImageIcon(ImageIcon icon)
    {
+	   
+	  icon = new ImageIcon(icon.getImage().getScaledInstance(550, 520, java.awt.Image.SCALE_SMOOTH));
       this.icon = icon;
    }
    
