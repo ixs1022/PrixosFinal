@@ -1,0 +1,13 @@
+In ImageViewer.jpeg, do not hardcode the images, but allow the user to select a folder, website, database. See 
+what we did with the MP3Player (the iterator pattern for different data sources and image formats). You might 
+consider some of the creational patterns in this regard as well.
+
+I do not see Srdjan's part of the code nor his commits.
+
+Most of the classes Isabella is in charge are stub, that is, merely place holders.
+
+The code smells are more organisational. In other words, to fix the code high-level interventions are needed, i.e., 
+design patterns.
+
+Altogether, you started well with the project, but a lot of it is still missing. You need to make a final push to 
+complete the project adequately and on time.
