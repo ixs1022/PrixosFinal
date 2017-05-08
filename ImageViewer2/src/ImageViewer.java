@@ -92,11 +92,10 @@ public class ImageViewer extends JFrame{
 		chooser.setAcceptAllFileFilterUsed(false);
 
 		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-			System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
-			System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
-			dir = new File("" + chooser.getSelectedFile());
+			
 		} else {
-			System.out.println("No Selection ");
+			System.out.println("No Selection Closing the program!");
+			System.exit(0);
 		}
 		
 		
@@ -105,17 +104,14 @@ public class ImageViewer extends JFrame{
 		//creating of array list
 		ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
 		
-		if (dir.isDirectory()) { // make sure it's a directory
+		if (dir.isDirectory()) { 
             for(File f : directoryListing) {
                 BufferedImage img = null;
 
                 try {
                     img = ImageIO.read(f);
                     alImages.add(new ImageIcon(chooser.getSelectedFile() + "\\" + f.getName()));
-                    // you probably want something more involved here
-                    // to display in your UI
-                   // System.out.println("image: " + f.getName());
-                    
+
                 } catch (final IOException e) {
                     // handle errors here
                 }
@@ -164,16 +160,12 @@ public class ImageViewer extends JFrame{
 			int k = alImages.size() -1;
 			int x = 0;
 			while(x < k){
-				//System.out.println("while");
 				for(int i = 1; i <= numCards; i++)
 				{
-					//System.out.println("In outer for loop");
 					JPanel jpImageGrid = new JPanel(new GridLayout(0,2,20,20));
 						for(int j=0; j < 4; j++){
-							//System.out.println(x);
 							if(x < k){
 								ImageIcon img = alImages.get(x);
-								//System.out.println(img.toString());
 								java.awt.Image image = img.getImage();
 								java.awt.Image newImage = image.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
 								ImageIcon newImg = new ImageIcon(newImage);
