@@ -44,7 +44,7 @@ public class CustomImage{
    {
 	   String newName = file.getName().substring(0,file.getName().length() -4);
 	   try {
-		    // retrieve image
+		    // Making the directory if it doesn't exist already!
 		   File savedDirectory =new File(System.getProperty("user.dir") + "\\" + "savedImages");
 		   if(!savedDirectory.exists()){
 			   
