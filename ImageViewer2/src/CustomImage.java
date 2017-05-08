@@ -51,8 +51,6 @@ public class CustomImage{
 			   savedDirectory.mkdir();
 		   }
 		   
-
-		    BufferedImage bi = image;
 		    File outputfile = new File(System.getProperty("user.dir") + "\\savedImages\\" + newName+"Edited.png");
 		    ImageIO.write(image, "PNG", outputfile);
 	   }
