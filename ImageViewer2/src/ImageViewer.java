@@ -92,7 +92,7 @@ public class ImageViewer extends JFrame{
 		chooser.setAcceptAllFileFilterUsed(false);
 
 		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-			
+			dir = new File("" + chooser.getSelectedFile());
 		} else {
 			System.out.println("No Selection Closing the program!");
 			System.exit(0);
