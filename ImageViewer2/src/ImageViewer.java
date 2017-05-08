@@ -26,6 +26,7 @@ public class ImageViewer extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public static File dir;
 	// attributes
 	private JMenuItem jmiSave;
 	private JMenuItem jmiSaveAs;
@@ -80,30 +81,75 @@ public class ImageViewer extends JFrame{
 		setJMenuBar(jmbMenuBar);
 		
 		
+		
+	    
+	    //TESTING THE CODE FOR ITERATING THORUGH A FOLDER
+	    
+	    JFileChooser chooser = new JFileChooser();
+		chooser.setCurrentDirectory(new java.io.File("."));
+		chooser.setDialogTitle("choosertitle");
+		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		chooser.setAcceptAllFileFilterUsed(false);
+
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+			System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+			dir = new File("" + chooser.getSelectedFile());
+		} else {
+			System.out.println("No Selection ");
+		}
+		
+		
+		File[] directoryListing = dir.listFiles();
+		
+		//creating of array list
+		ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
+		
+		if (dir.isDirectory()) { // make sure it's a directory
+            for(File f : directoryListing) {
+                BufferedImage img = null;
+
+                try {
+                    img = ImageIO.read(f);
+                    alImages.add(new ImageIcon(chooser.getSelectedFile() + "\\" + f.getName()));
+                    // you probably want something more involved here
+                    // to display in your UI
+                   // System.out.println("image: " + f.getName());
+                    
+                } catch (final IOException e) {
+                    // handle errors here
+                }
+            }// end of for
+            
+        }
+		
+		
+		//END OF CODE TESTING
+		
 		JPanel jpImages = new JPanel(new CardLayout());
-			ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
-				alImages.add(new ImageIcon("ImageViewer2/balloon-hot-air.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/beaver-lodge-on-martin-lake.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/beer-and-bread.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/bengal-tiger.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/biking-at-chincoteague-national-wildlife-refuge.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/cactus-photo.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/chinese-dragons-flat-stanley.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/cliffs-yosemite-halfdome-sierras.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/columbia-shuttle-start.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/decomposing-cow-skull.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/first-man-on-moon-walking-on-the-moon.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/great-fireworks-night.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/man-checking-gill-nets.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/rock-climber-on-the-wall.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/soldier-on-military-boat.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/spring-in-hills.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/the-manna-organic-shop-kilcullen.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/tower-bridge-in-london-england.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/winter-road.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/wooden-window.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/yankees-stadium-crowd.jpg"));
-				alImages.add(new ImageIcon("ImageViewer2/yard-gate.jpg"));
+		//ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
+			//	alImages.add(new ImageIcon("ImageViewer2/balloon-hot-air.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/beaver-lodge-on-martin-lake.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/beer-and-bread.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/bengal-tiger.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/biking-at-chincoteague-national-wildlife-refuge.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/cactus-photo.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/chinese-dragons-flat-stanley.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/cliffs-yosemite-halfdome-sierras.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/columbia-shuttle-start.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/decomposing-cow-skull.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/first-man-on-moon-walking-on-the-moon.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/great-fireworks-night.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/man-checking-gill-nets.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/rock-climber-on-the-wall.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/soldier-on-military-boat.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/spring-in-hills.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/the-manna-organic-shop-kilcullen.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/tower-bridge-in-london-england.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/winter-road.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/wooden-window.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/yankees-stadium-crowd.jpg"));
+			//	alImages.add(new ImageIcon("ImageViewer2/yard-gate.jpg"));
 				
 				
 			int numCards;
@@ -169,6 +215,7 @@ public class ImageViewer extends JFrame{
 			}
 		
 		add(jpImages);
+		
 		JPanel jpButtons = new JPanel();
 			JButton jbPrev = new JButton("Previous");
 				jbPrev.setEnabled(false);
