@@ -45,8 +45,15 @@ public class CustomImage{
 	   String newName = file.getName().substring(0,file.getName().length() -4);
 	   try {
 		    // retrieve image
+		   File savedDirectory =new File(System.getProperty("user.dir") + "\\" + "savedImages");
+		   if(!savedDirectory.exists()){
+			   
+			   savedDirectory.mkdir();
+		   }
+		   
+
 		    BufferedImage bi = image;
-		    File outputfile = new File("ImageViewer/"+newName+"Edited.png");
+		    File outputfile = new File(System.getProperty("user.dir") + "\\savedImages\\" + newName+"Edited.png");
 		    ImageIO.write(image, "PNG", outputfile);
 	   }
       catch(Exception e)
