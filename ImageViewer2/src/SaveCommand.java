@@ -1,4 +1,4 @@
-package CommandPattern;
+
 
 /**
  * SaveCommand, when called, saves the new edited image
@@ -10,10 +10,30 @@ package CommandPattern;
  */
 public class SaveCommand implements Command {
 
-	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
+	//attributes
+		EditingOptions option;
 		
-	}
+		//Constructor
+		public SaveCommand(EditingOptions newOption){
+			this.option = newOption;
+		}
+		
+		@Override
+		public void execute() {
+			option.saveImage();
+			
+		}
+
+		@Override
+		public void execute(int w, int h) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void execute(double deg) {
+			
+			
+		}
 
 }

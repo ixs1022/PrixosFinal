@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 //Author Ivan Kovacevic
 
-public class ImageEditor{
+public class ImageEditor implements EditingOptions{
 	
 	//ATTRIBUTES
 	
@@ -21,21 +21,24 @@ public class ImageEditor{
    
    //METHODS
    
-   //Method for resizing the image
+   //Method for resizing the image OVERRIDE because of the Command pattern (From EditingOptions interface)
+   @Override
    public void resize(int w, int h){
       Image im = image.getBuffered().getScaledInstance(w, h, image.getBuffered().SCALE_DEFAULT);   
       image.setImageIcon(new ImageIcon(im));
       image.createBufferedViaImageIcon();
    }
    
- //Method for fliping the image
+ //Method for fliping the image OVERRIDE because of the Command pattern (From EditingOptions interface)
+   @Override
    public void flip(){
       BufferedImage flipped  = createFlipped(image.getBuffered());
       image.setImageIcon(new ImageIcon(flipped));
       image.setBufferedImage(flipped);
    }
    
- //Method for rotating the image
+ //Method for rotating the image OVERRIDE because of the Command pattern (From EditingOptions interface)
+   @Override
    public void rotate(double deg){
       BufferedImage rotated = createRotated(image.getBuffered(), deg);
       image.setImageIcon(new ImageIcon(rotated));
@@ -43,7 +46,8 @@ public class ImageEditor{
    }
    
    
-   //Saves the new BufferedImage as png
+   //Saves the new BufferedImage as png OVERRIDE because of the Command pattern (From EditingOptions interface)
+   @Override
    public void saveImage(){
 	   image.saveImageNew();
    }
@@ -76,5 +80,8 @@ public class ImageEditor{
       g.dispose();
       return newImage;
    }
+
+
+
    
 }// End of class ImageEditor

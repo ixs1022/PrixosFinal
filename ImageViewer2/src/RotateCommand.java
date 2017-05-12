@@ -1,4 +1,4 @@
-package CommandPattern;
+
 
 /**
  * RotateCommand uses dialog box (action sheet) to allow user
@@ -9,13 +9,13 @@ package CommandPattern;
  *
  */
 public class RotateCommand implements Command {
-	//attributes
 	
-	/**
-	 * Constructor
-	 */
-	public RotateCommand(){
-		
+	//attributes
+	EditingOptions option;
+	
+	//Constructor
+	public RotateCommand(EditingOptions newOption){
+		this.option = newOption;
 	}
 	
 	@Override
@@ -23,12 +23,18 @@ public class RotateCommand implements Command {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	/**
-	 * Method to be performed when rotate button is clicked by user
-	 */
-	public void rotate(){
+
+	@Override
+	public void execute(int w, int h) {
+		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void execute(double deg) {
+		option.rotate(deg);
+		
+	}
+	
+	
 }

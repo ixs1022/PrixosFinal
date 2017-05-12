@@ -20,14 +20,14 @@ public class DisplayFrame {
 	
 	
 	private CustomImage image;
-	private String imgHeight;
-	private String imgWidth;
+	private int imgHeight;
+	private int imgWidth;
 	//DEFAUTL CONSTRUCTOR
 	
 	public DisplayFrame(CustomImage image) {
 		
-		imgHeight = Integer.toString(image.getHeightImage());
-		imgWidth = Integer.toString(image.getWidthImage());
+		imgHeight = image.getHeightImage();
+		imgWidth = image.getWidthImage();
 		this.image = image;
 	}
 	
@@ -60,7 +60,8 @@ public class DisplayFrame {
 		JButton saveButton = new JButton("Save");
 		
 		
-	
+		//Adding actionListener for resizeButton
+		
 		resizeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent c) {
 
@@ -68,8 +69,16 @@ public class DisplayFrame {
 				String h = JOptionPane.showInputDialog(frame, "Enter Height!", null);
 
 				try {
-					ImageEditor editor = new ImageEditor(i);
-					editor.resize(Integer.parseInt(w), Integer.parseInt(h));
+					//ImageEditor editor = new ImageEditor(i);
+					//editor.resize(Integer.parseInt(w), Integer.parseInt(h));
+					
+					//Command pattern Resize
+					EditingOptions newOption = ImageEditorRemote.getDevice(i);
+					ResizeCommand resizeCommand = new ResizeCommand(newOption);
+					
+					OptionButton onPressed = new OptionButton(resizeCommand);
+					onPressed.press(Integer.parseInt(w), Integer.parseInt(h));
+					
 					frame.setVisible(false);
 					showFrame(i);
 				} catch (Exception e) {
@@ -79,11 +88,21 @@ public class DisplayFrame {
 				}
 			}
 		});
+		
+		//Adding actionListener for flipButton
 
 		flipButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent c) {
-				ImageEditor editor = new ImageEditor(i);
-				editor.flip();
+				//ImageEditor editor = new ImageEditor(i);
+				//editor.flip();
+				
+				//Command pattern Flip
+				EditingOptions newOption = ImageEditorRemote.getDevice(i);
+				FlipCommand flipCommand = new FlipCommand(newOption);
+				
+				OptionButton onPressed = new OptionButton(flipCommand);
+				onPressed.press();
+				
 				frame.setVisible(false);
 				showFrame(i);
 			}
@@ -96,8 +115,17 @@ public class DisplayFrame {
 					
 					String deg = JOptionPane.showInputDialog(frame, "Rotating...", null);
 
-					ImageEditor editor = new ImageEditor(i);
-					editor.rotate(Double.parseDouble(deg));
+				//	ImageEditor editor = new ImageEditor(i);
+				//	editor.rotate(Double.parseDouble(deg));
+					
+					//Command pattern Rotate
+					EditingOptions newOption = ImageEditorRemote.getDevice(i);
+					RotateCommand rotateCommand = new RotateCommand(newOption);
+					
+					OptionButton onPressed = new OptionButton(rotateCommand);
+					onPressed.press(Double.parseDouble(deg));
+					
+					
 					frame.setVisible(false);
 					showFrame(i);
 				} catch (Exception e) {
@@ -110,8 +138,15 @@ public class DisplayFrame {
 		//Save works and renames the file to the same name + edited.
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent c) {
-				ImageEditor editor = new ImageEditor(i);
-				editor.saveImage();
+				//ImageEditor editor = new ImageEditor(i);
+				//editor.saveImage();
+				
+				//Command pattern Save
+				EditingOptions newOption = ImageEditorRemote.getDevice(i);
+				SaveCommand saveCommand = new SaveCommand(newOption);
+				
+				OptionButton onPressed = new OptionButton(saveCommand);
+				onPressed.press();
 			}
 		});
 
