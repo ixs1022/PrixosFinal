@@ -110,7 +110,7 @@ public class ImageViewer extends JFrame{
 
                 try {
                     img = ImageIO.read(f);
-                    alImages.add(new ImageIcon(chooser.getSelectedFile() + "\\" + f.getName()));
+                    alImages.add(new ImageIcon(chooser.getSelectedFile() + "/" + f.getName()));
 
                 } catch (final IOException e) {
                     // handle errors here

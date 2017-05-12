@@ -1,0 +1,16 @@
+/**
+ * Flip, when calls upon, allows user to flip image 
+ * either vertically or horizontally to create a mirror image
+ * 
+ * @author isabella
+ *
+ */
+public class FlipCommand implements Command {
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
