@@ -1,5 +1,10 @@
 import javax.swing.ImageIcon;
-
+/**
+ * UNIMPLEMENTED - Prototype pattern
+ * Class responsible for making copy of image for editing
+ * @author isabella
+ *
+ */
 public class ImageClone implements ImagePrototype{
 	// attributes
 	private ImageIcon ic;

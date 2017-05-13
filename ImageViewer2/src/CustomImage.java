@@ -4,8 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 import javax.imageio.*;
 import java.awt.image.BufferedImage;
-
-// Author Ivan Kovacevic
+/**
+ * Class to create ImageIcons from BufferedImages from Files of images
+ * @author Ivan Kovacevic
+ *
+ */
 
 public class CustomImage{
 	
@@ -14,15 +17,17 @@ public class CustomImage{
    BufferedImage image = null;
    File file;
    ArrayList<ImageIcon> alImages;
-   
-   //CONSTRUCTOR
-   
+ 
+   /**
+    * Constructor for CustomImage
+    * @param file File
+    */
    public CustomImage(File file){
 	   
       try{
         // icon = new ImageIcon(f.toURL());
          image = ImageIO.read(file);
-         image.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
+         //image.getScaledInstance(333, 250, java.awt.Image.SCALE_SMOOTH);
          this.file = file;
          //this.alImages = alImages;
       }
@@ -65,7 +70,10 @@ public class CustomImage{
    
    
    //GETTERS 
-   
+   /**
+    * Accessor to get BufferedImage
+    * @return image
+    */
    public BufferedImage getBuffered()
    {
       return image;
@@ -73,29 +81,47 @@ public class CustomImage{
    }
    
    //Returns an icon
-   
+   /**
+    * Method to get height of buffered image
+    * @return height of image (buffered image)
+    */
    public int getHeightImage()
    {
       return image.getHeight();
    }
    
+   /**
+    * Method to get width of buffered image
+    * @return width of image (buffered image)
+    */
    public int getWidthImage()
    {
       return image.getWidth();
    }
    
    
-   
+   /**
+    * Method to get icon of buffered image
+    * @return icon
+    */
    public Icon getIcon()
    {
       return icon;
    }
    
+   /**
+    * Method to get height of icon
+    * @return icon height
+    */
    public int getHeight()
    {
       return icon.getIconHeight();
    }
    
+   /**
+    * Method to get width of icon
+    * @return icon width
+    */
    public int getWidth()
    {
       return icon.getIconWidth();
@@ -103,15 +129,23 @@ public class CustomImage{
    
    //SETTERS
    
+   /**
+    * Method to set image icon
+    * @param icon
+    * Uncommenting getScaledInstance causes image to remain that size even resizing 
+    * - image blurs because smaller image is zoomed
+    */
    // setting the image icon using the setImageIcon() and resizing it to fit the new pop up Jframe
    public void setImageIcon(ImageIcon icon)
    {
 	   
-	  icon = new ImageIcon(icon.getImage().getScaledInstance(550, 520, java.awt.Image.SCALE_SMOOTH));
+	  icon = new ImageIcon(icon.getImage());//.getScaledInstance(550, 520, java.awt.Image.SCALE_SMOOTH));
       this.icon = icon;
    }
    
-  
+  /**
+   * Method to create buffered image from image icon
+   */
    public void createBufferedViaImageIcon()
    {
 	  image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
@@ -120,7 +154,10 @@ public class CustomImage{
       g.dispose();
    }
    
-  
+  /**
+   * Method to set buffered image
+   * @param img BufferedImage
+   */
    public void setBufferedImage(BufferedImage img)
    {
       this.image = img;

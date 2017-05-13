@@ -33,14 +33,6 @@ public class ImageViewer extends JFrame{
 	private JMenuItem jmiClose;
 	private JMenuItem jmiUndo;
 	private JMenuItem jmiRedo;
-	private JButton jbEdit;
-	private JButton jbCrop;
-	private JButton jbRotate;
-	private JButton jbMirror;
-	private JButton jbResize;
-	private JButton jbDelete;
-	private JButton jbOpen;
-	private JButton jbNew;
 	private int cur = 0;
 	/**
 	 * Main method of application
@@ -123,31 +115,6 @@ public class ImageViewer extends JFrame{
 		//END OF CODE TESTING
 		
 		JPanel jpImages = new JPanel(new CardLayout());
-		//ArrayList<ImageIcon> alImages = new ArrayList<ImageIcon>();
-			//	alImages.add(new ImageIcon("ImageViewer2/balloon-hot-air.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/beaver-lodge-on-martin-lake.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/beer-and-bread.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/bengal-tiger.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/biking-at-chincoteague-national-wildlife-refuge.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/cactus-photo.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/chinese-dragons-flat-stanley.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/cliffs-yosemite-halfdome-sierras.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/columbia-shuttle-start.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/decomposing-cow-skull.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/first-man-on-moon-walking-on-the-moon.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/great-fireworks-night.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/man-checking-gill-nets.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/rock-climber-on-the-wall.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/soldier-on-military-boat.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/spring-in-hills.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/the-manna-organic-shop-kilcullen.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/tower-bridge-in-london-england.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/winter-road.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/wooden-window.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/yankees-stadium-crowd.jpg"));
-			//	alImages.add(new ImageIcon("ImageViewer2/yard-gate.jpg"));
-				
-				
 			int numCards;
 			if(alImages.size() % 4 == 0){
 				numCards = alImages.size()/4;

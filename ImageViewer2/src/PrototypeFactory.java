@@ -1,6 +1,7 @@
 import javax.swing.ImageIcon;
 
 /**
+ * UNIMPLEMENTED
  * Factory class that will make copies of ImagePrototype objects
  * @author isabella
  *

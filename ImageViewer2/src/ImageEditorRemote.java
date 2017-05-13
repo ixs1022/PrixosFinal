@@ -1,5 +1,16 @@
+/**
+ * Class to get ImageEditor (Editing Option) for selected custom image
+ * Command pattern
+ * @author Ivan Kovacevic
+ *
+ */
 public class ImageEditorRemote {
 	
+	/**
+	 * Method to get ImageEditor (Editing Option) for selected custom image
+	 * @param customImage
+	 * @return new ImageEditor(customImage)
+	 */
 	public static EditingOptions getDevice(CustomImage customImage){
 		
 		return new ImageEditor(customImage);
